@@ -86,3 +86,14 @@
 - [x] Test admin features
 - [x] Verify all forms submit correctly
 - [x] All 23 vitest tests passing
+
+
+## Authentication Features (Completed)
+
+### Sign In & Sign Up Pages
+- [x] Create Sign In page with OAuth button
+- [x] Create Sign Up page with registration flow
+- [x] Add authentication links to header navigation
+- [x] Add authentication links to relevant pages
+- [ ] Create member dashboard/profile page
+- [x] Test authentication flow end-to-end

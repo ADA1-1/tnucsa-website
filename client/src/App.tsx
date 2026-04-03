@@ -10,6 +10,8 @@ import Events from "./pages/Events";
 import News from "./pages/News";
 import Register from "./pages/Register";
 import Contact from "./pages/Contact";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +26,8 @@ function Router() {
       <Route path={"/news"} component={News} />
       <Route path={"/register"} component={Register} />
       <Route path={"/contact"} component={Contact} />
+      <Route path={"/signin"} component={SignIn} />
+      <Route path={"/signup"} component={SignUp} />
       <Route path={"/admin"} component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, UserPlus } from "lucide-react";
 import { LOGO_URL, ASSOCIATION_INFO, NAVIGATION_ITEMS } from "@shared/constants";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -34,18 +36,47 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/admin"
-              className="text-gray-600 hover:text-blue-900 font-medium transition-colors text-sm"
-            >
-              Admin
-            </Link>
-            <Link
-              href="/register"
-              className="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 font-medium transition-colors"
-            >
-              Join Us
-            </Link>
+            {user?.role === "admin" && (
+              <Link
+                href="/admin"
+                className="text-gray-600 hover:text-blue-900 font-medium transition-colors text-sm"
+              >
+                Admin
+              </Link>
+            )}
+            {user ? (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="text-gray-700 hover:text-blue-900 font-medium transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="/profile"
+                  className="text-gray-700 hover:text-blue-900 font-medium transition-colors"
+                >
+                  Profile
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/signin"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-900 font-medium transition-colors"
+                >
+                  <LogIn size={18} />
+                  Sign In
+                </Link>
+                <Link
+                  href="/signup"
+                  className="flex items-center gap-2 px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 font-medium transition-colors"
+                >
+                  <UserPlus size={18} />
+                  Sign Up
+                </Link>
+              </>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -72,20 +103,52 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="/admin"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-blue-900 font-medium py-2 transition-colors text-sm"
-              >
-                Admin
-              </Link>
-              <Link
-                href="/register"
-                onClick={() => setIsMenuOpen(false)}
-                className="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 font-medium transition-colors text-center"
-              >
-                Join Us
-              </Link>
+              {user?.role === "admin" && (
+                <Link
+                  href="/admin"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-600 hover:text-blue-900 font-medium py-2 transition-colors text-sm"
+                >
+                  Admin
+                </Link>
+              )}
+              {user ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-gray-700 hover:text-blue-900 font-medium py-2 transition-colors"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    href="/profile"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-gray-700 hover:text-blue-900 font-medium py-2 transition-colors"
+                  >
+                    Profile
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/signin"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2 text-gray-700 hover:text-blue-900 font-medium py-2 transition-colors"
+                  >
+                    <LogIn size={18} />
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/signup"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 font-medium transition-colors text-center"
+                  >
+                    <UserPlus size={18} />
+                    Sign Up
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         )}
