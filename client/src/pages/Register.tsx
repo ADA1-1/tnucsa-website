@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import { trpc } from "@/lib/trpc";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -26,11 +27,18 @@ export default function Register() {
         phone: "",
       });
       setError("");
+      toast.success("Registration successful! Welcome to TNUCSA.", {
+        description: "Your membership application has been submitted.",
+      });
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000);
     },
-    onError: (err) => {
-      setError(err.message || "Failed to register. Please try again.");
+    onError: (err: any) => {
+      const errorMessage = err?.message || "Failed to register. Please try again.";
+      setError(errorMessage);
+      toast.error("Registration Failed", {
+        description: errorMessage,
+      });
     },
   });
 
@@ -40,6 +48,8 @@ export default function Register() {
       ...prev,
       [name]: value,
     }));
+    // Clear error when user starts typing
+    if (error) setError("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -48,23 +58,42 @@ export default function Register() {
 
     // Validate form
     if (!formData.fullName.trim()) {
-      setError("Full name is required");
+      const msg = "Full name is required";
+      setError(msg);
+      toast.error(msg);
       return;
     }
     if (!formData.registrationNumber.trim()) {
-      setError("Registration number is required");
+      const msg = "Registration number is required";
+      setError(msg);
+      toast.error(msg);
       return;
     }
     if (!formData.institutionName.trim()) {
-      setError("Institution name is required");
+      const msg = "Institution name is required";
+      setError(msg);
+      toast.error(msg);
       return;
     }
     if (!formData.email.trim()) {
-      setError("Email is required");
+      const msg = "Email is required";
+      setError(msg);
+      toast.error(msg);
       return;
     }
     if (!formData.phone.trim()) {
-      setError("Phone number is required");
+      const msg = "Phone number is required";
+      setError(msg);
+      toast.error(msg);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      const msg = "Please enter a valid email address";
+      setError(msg);
+      toast.error(msg);
       return;
     }
 
@@ -89,7 +118,7 @@ export default function Register() {
           <div className="max-w-2xl mx-auto">
             {/* Success Message */}
             {submitted && (
-              <div className="mb-6 bg-green-50 border-l-4 border-green-700 p-6 rounded-lg">
+              <div className="mb-6 bg-green-50 border-l-4 border-green-700 p-6 rounded-lg animate-slide-up">
                 <div className="flex items-start gap-4">
                   <CheckCircle className="text-green-700 flex-shrink-0 mt-1" size={24} />
                   <div>
@@ -104,7 +133,7 @@ export default function Register() {
 
             {/* Error Message */}
             {error && (
-              <div className="mb-6 bg-red-50 border-l-4 border-red-700 p-6 rounded-lg">
+              <div className="mb-6 bg-red-50 border-l-4 border-red-700 p-6 rounded-lg animate-slide-up">
                 <div className="flex items-start gap-4">
                   <AlertCircle className="text-red-700 flex-shrink-0 mt-1" size={24} />
                   <div>
@@ -132,7 +161,7 @@ export default function Register() {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="Enter your full name"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   />
                 </div>
@@ -149,7 +178,7 @@ export default function Register() {
                     value={formData.registrationNumber}
                     onChange={handleChange}
                     placeholder="e.g., STU/2024/001"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   />
                 </div>
@@ -164,7 +193,7 @@ export default function Register() {
                     name="institutionName"
                     value={formData.institutionName}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   >
                     <option value="">Select your institution</option>
@@ -189,7 +218,7 @@ export default function Register() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   />
                 </div>
@@ -206,7 +235,7 @@ export default function Register() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+256 700 123 456"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   />
                 </div>
@@ -228,9 +257,16 @@ export default function Register() {
                 <button
                   type="submit"
                   disabled={registerMutation.isPending}
-                  className="w-full px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="w-full px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  {registerMutation.isPending ? "Registering..." : "Complete Registration"}
+                  {registerMutation.isPending ? (
+                    <>
+                      <Loader2 size={20} className="animate-spin" />
+                      Registering...
+                    </>
+                  ) : (
+                    "Complete Registration"
+                  )}
                 </button>
               </form>
 
@@ -254,7 +290,7 @@ export default function Register() {
                   "Leadership development programs",
                   "Member-only content and resources",
                 ].map((benefit, index) => (
-                  <div key={index} className="bg-white p-4 rounded-lg border-l-4 border-green-700 shadow-md">
+                  <div key={index} className="bg-white p-4 rounded-lg border-l-4 border-green-700 shadow-md hover:shadow-lg transition-shadow">
                     <p className="text-gray-700 font-medium">{benefit}</p>
                   </div>
                 ))}

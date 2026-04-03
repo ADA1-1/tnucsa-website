@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import { trpc } from "@/lib/trpc";
-import { Mail, Phone, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { ASSOCIATION_INFO } from "@shared/constants";
+import { toast } from "sonner";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -27,11 +28,18 @@ export default function Contact() {
         message: "",
       });
       setError("");
+      toast.success("Message Sent!", {
+        description: "We will get back to you as soon as possible.",
+      });
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000);
     },
-    onError: (err) => {
-      setError(err.message || "Failed to send message. Please try again.");
+    onError: (err: any) => {
+      const errorMessage = err?.message || "Failed to send message. Please try again.";
+      setError(errorMessage);
+      toast.error("Error", {
+        description: errorMessage,
+      });
     },
   });
 
@@ -41,6 +49,8 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }));
+    // Clear error when user starts typing
+    if (error) setError("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -49,19 +59,36 @@ export default function Contact() {
 
     // Validate form
     if (!formData.senderName.trim()) {
-      setError("Name is required");
+      const msg = "Name is required";
+      setError(msg);
+      toast.error(msg);
       return;
     }
     if (!formData.email.trim()) {
-      setError("Email is required");
+      const msg = "Email is required";
+      setError(msg);
+      toast.error(msg);
       return;
     }
     if (!formData.subject.trim()) {
-      setError("Subject is required");
+      const msg = "Subject is required";
+      setError(msg);
+      toast.error(msg);
       return;
     }
     if (!formData.message.trim()) {
-      setError("Message is required");
+      const msg = "Message is required";
+      setError(msg);
+      toast.error(msg);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      const msg = "Please enter a valid email address";
+      setError(msg);
+      toast.error(msg);
       return;
     }
 
@@ -159,7 +186,7 @@ export default function Contact() {
 
               {/* Success Message */}
               {submitted && (
-                <div className="mb-6 bg-green-50 border-l-4 border-green-700 p-6 rounded-lg">
+                <div className="mb-6 bg-green-50 border-l-4 border-green-700 p-6 rounded-lg animate-slide-up">
                   <div className="flex items-start gap-4">
                     <CheckCircle className="text-green-700 flex-shrink-0 mt-1" size={24} />
                     <div>
@@ -174,7 +201,7 @@ export default function Contact() {
 
               {/* Error Message */}
               {error && (
-                <div className="mb-6 bg-red-50 border-l-4 border-red-700 p-6 rounded-lg">
+                <div className="mb-6 bg-red-50 border-l-4 border-red-700 p-6 rounded-lg animate-slide-up">
                   <div className="flex items-start gap-4">
                     <AlertCircle className="text-red-700 flex-shrink-0 mt-1" size={24} />
                     <div>
@@ -198,7 +225,7 @@ export default function Contact() {
                     value={formData.senderName}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   />
                 </div>
@@ -215,7 +242,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   />
                 </div>
@@ -232,7 +259,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+256 700 123 456"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                   />
                 </div>
 
@@ -248,7 +275,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="How can we help?"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all"
                     required
                   />
                 </div>
@@ -265,7 +292,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your message here..."
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 resize-none"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 transition-all resize-none"
                     required
                   ></textarea>
                 </div>
@@ -274,9 +301,16 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitInquiryMutation.isPending}
-                  className="w-full px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="w-full px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  {submitInquiryMutation.isPending ? "Sending..." : "Send Message"}
+                  {submitInquiryMutation.isPending ? (
+                    <>
+                      <Loader2 size={20} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
                 </button>
               </form>
             </div>
@@ -313,7 +347,7 @@ export default function Contact() {
                   "Yes! We welcome volunteers. If you're interested in volunteering, please contact us through the inquiry form and let us know about your interests and availability.",
               },
             ].map((faq, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                 <h3 className="text-lg font-bold text-blue-900 mb-3">{faq.question}</h3>
                 <p className="text-gray-700">{faq.answer}</p>
               </div>

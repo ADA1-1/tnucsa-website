@@ -1,6 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -11,19 +10,22 @@ import Events from "./pages/Events";
 import News from "./pages/News";
 import Register from "./pages/Register";
 import Contact from "./pages/Contact";
+import AdminDashboard from "./pages/AdminDashboard";
+import NotFound from "./pages/NotFound";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/leadership" component={Leadership} />
-      <Route path="/events" component={Events} />
-      <Route path="/news" component={News} />
-      <Route path="/register" component={Register} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/404" component={NotFound} />
+      <Route path={"/"} component={Home} />
+      <Route path={"/about"} component={About} />
+      <Route path={"/leadership"} component={Leadership} />
+      <Route path={"/events"} component={Events} />
+      <Route path={"/news"} component={News} />
+      <Route path={"/register"} component={Register} />
+      <Route path={"/contact"} component={Contact} />
+      <Route path={"/admin"} component={AdminDashboard} />
+      <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
