@@ -12,6 +12,7 @@ import Register from "./pages/Register";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -28,6 +29,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/signin"} component={SignIn} />
       <Route path={"/signup"} component={SignUp} />
+      <Route path={"/dashboard"} component={Dashboard} />
       <Route path={"/admin"} component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

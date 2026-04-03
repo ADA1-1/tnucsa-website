@@ -97,3 +97,30 @@
 - [x] Add authentication links to relevant pages
 - [ ] Create member dashboard/profile page
 - [x] Test authentication flow end-to-end
+
+
+## Member Dashboard Features (Completed)
+
+### Database & Backend
+- [x] Add event_registrations table to schema
+- [x] Add member_preferences table to schema
+- [x] Create backend procedures for event registration
+- [x] Create backend procedures for member profile updates
+- [x] Create backend procedures for membership status retrieval
+
+### Dashboard Pages
+- [x] Create Dashboard landing page with overview
+- [x] Create Event Registrations page
+- [x] Create Membership Status page
+- [x] Create Profile Management page
+- [x] Create Account Settings page
+
+### Features
+- [x] Display upcoming registered events
+- [x] Display past events attended
+- [x] Show membership status and benefits
+- [x] Allow profile picture upload
+- [x] Allow profile information updates
+- [x] Show membership renewal options
+- [x] Display event attendance history
+- [x] Allow event registration/cancellation

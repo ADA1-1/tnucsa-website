@@ -1,6 +1,6 @@
 import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, InsertMember, members, InsertEvent, events, InsertAnnouncement, announcements, InsertLeadership, leadership, InsertInquiry, inquiries } from "../drizzle/schema";
+import { InsertUser, users, InsertMember, members, InsertEvent, events, InsertAnnouncement, announcements, InsertLeadership, leadership, InsertInquiry, inquiries, eventRegistrations, memberPreferences, InsertEventRegistration, InsertMemberPreference } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -173,4 +173,45 @@ export async function getAllInquiries() {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   return await db.select().from(inquiries).orderBy(desc(inquiries.createdAt));
+}
+
+
+// Event registration queries
+export async function registerForEvent(registration: InsertEventRegistration) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(eventRegistrations).values(registration);
+}
+
+export async function getMemberEventRegistrations(memberId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.select().from(eventRegistrations).where(eq(eventRegistrations.memberId, memberId));
+}
+
+export async function getMemberByUserId(userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.select().from(members).where(eq(members.userId, userId)).limit(1);
+  return result[0];
+}
+
+// Member preferences queries
+export async function getMemberPreferences(memberId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.select().from(memberPreferences).where(eq(memberPreferences.memberId, memberId)).limit(1);
+  return result[0];
+}
+
+export async function upsertMemberPreferences(memberId: number, prefs: Partial<InsertMemberPreference>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const existing = await getMemberPreferences(memberId);
+  if (existing) {
+    return await db.update(memberPreferences).set(prefs).where(eq(memberPreferences.memberId, memberId));
+  } else {
+    return await db.insert(memberPreferences).values({ memberId, ...prefs });
+  }
 }

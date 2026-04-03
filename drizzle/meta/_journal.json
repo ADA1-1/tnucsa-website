@@ -15,6 +15,13 @@
       "when": 1775209952924,
       "tag": "0001_curious_puma",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1775211905573,
+      "tag": "0002_lovely_triton",
+      "breakpoints": true
     }
   ]
 }

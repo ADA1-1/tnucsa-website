@@ -121,3 +121,21 @@ export const inquiries = mysqlTable("inquiries", {
 
 export type Inquiry = typeof inquiries.$inferSelect;
 export type InsertInquiry = typeof inquiries.$inferInsert;
+
+// Member preferences and profile settings
+export const memberPreferences = mysqlTable("memberPreferences", {
+  id: int("id").autoincrement().primaryKey(),
+  memberId: int("memberId").references(() => members.id).notNull().unique(),
+  profilePhotoUrl: varchar("profilePhotoUrl", { length: 500 }),
+  bio: text("bio"),
+  phoneVerified: boolean("phoneVerified").default(false),
+  emailVerified: boolean("emailVerified").default(false),
+  notificationsEnabled: boolean("notificationsEnabled").default(true),
+  eventNotifications: boolean("eventNotifications").default(true),
+  announcementNotifications: boolean("announcementNotifications").default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type MemberPreference = typeof memberPreferences.$inferSelect;
+export type InsertMemberPreference = typeof memberPreferences.$inferInsert;
