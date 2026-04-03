@@ -53,6 +53,10 @@
   --chart-4: var(--color-blue-700);
   --chart-5: var(--color-blue-800);
   --radius: 0.65rem;
+  /* TNUCSA Brand Colors */
+  --tnucsa-blue: #003366;
+  --tnucsa-green: #1B5E20;
+  --tnucsa-white: #FFFFFF;
   --background: oklch(1 0 0);
   --foreground: oklch(0.235 0.015 65);
   --card: oklch(1 0 0);

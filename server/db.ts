@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, InsertMember, members, InsertEvent, events, InsertAnnouncement, announcements, InsertLeadership, leadership, InsertInquiry, inquiries } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,88 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Members queries
+export async function createMember(member: InsertMember) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(members).values(member);
+  return result;
+}
+
+export async function getMemberByRegistrationNumber(regNumber: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.select().from(members).where(eq(members.registrationNumber, regNumber)).limit(1);
+  return result[0];
+}
+
+export async function getAllMembers() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.select().from(members);
+}
+
+// Events queries
+export async function createEvent(event: InsertEvent) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(events).values(event);
+}
+
+export async function getUpcomingEvents() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.select().from(events).where(eq(events.status, "upcoming")).orderBy(events.eventDate);
+}
+
+export async function getAllEvents() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.select().from(events).orderBy(events.eventDate);
+}
+
+export async function getEventById(eventId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.select().from(events).where(eq(events.id, eventId)).limit(1);
+  return result[0];
+}
+
+// Announcements queries
+export async function createAnnouncement(announcement: InsertAnnouncement) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(announcements).values(announcement);
+}
+
+export async function getAllAnnouncements() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.select().from(announcements).orderBy(desc(announcements.createdAt));
+}
+
+// Leadership queries
+export async function getAllLeadership() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.select().from(leadership).orderBy(leadership.displayOrder);
+}
+
+export async function createLeadership(lead: InsertLeadership) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(leadership).values(lead);
+}
+
+// Inquiries queries
+export async function createInquiry(inquiry: InsertInquiry) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(inquiries).values(inquiry);
+}
+
+export async function getAllInquiries() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.select().from(inquiries).orderBy(desc(inquiries.createdAt));
+}
