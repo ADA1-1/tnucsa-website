@@ -52,6 +52,12 @@ export default function Header() {
                 >
                   Dashboard
                 </Link>
+                <Link
+                  href="/profile"
+                  className="text-gray-700 hover:text-blue-900 font-medium transition-colors"
+                >
+                  Profile
+                </Link>
               </>
             ) : (
               <>
@@ -114,6 +120,13 @@ export default function Header() {
                     className="text-gray-700 hover:text-blue-900 font-medium py-2 transition-colors"
                   >
                     Dashboard
+                  </Link>
+                  <Link
+                    href="/profile"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-gray-700 hover:text-blue-900 font-medium py-2 transition-colors"
+                  >
+                    Profile
                   </Link>
                 </>
               ) : (

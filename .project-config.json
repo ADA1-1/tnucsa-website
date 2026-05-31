@@ -1,0 +1,43 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [
+    "db",
+    "server",
+    "user"
+  ],
+  "dev_command": "pnpm run dev",
+  "env_vars": {
+    "DATABASE_URL": "mysql://2PPt2BNMeeMMBCs.821f0a484257:3X7sDGwf619PDOKdobt5@gateway05.us-east-1.prod.aws.tidbcloud.com:4000/9zwNw8oPS6GVdZYGj7Nbza?ssl={\"rejectUnauthorized\":true}"
+  },
+  "experiments": [
+    "no_db_push"
+  ],
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663480390382/9zwNw8oPS6GVdZYGj7Nbza",
+    "access_key_id": "ASIAZV3A2ECZH4NK27XL",
+    "secret_access_key": "Ufnj5cuQfh1/QfINiivC9EUNNKvxeBcivXm7TaYa",
+    "session_token": "IQoJb3JpZ2luX2VjEC8aCXVzLWVhc3QtMSJHMEUCIQDZjb1xes48+fliPQYdOZFyBYbBPI9OP9X8vbExoR+A8wIgNinPnP9t+Y6Zcajo/bvRbXDvjeyARa7qdm/lFfAs0y4q/wMI+P//////////ARAEGgw2NjUzODYwOTg4NjYiDFnLFPYBBPHXp+/msSrTA2IOxnX6V813i7tXYjW93mXzZQZpDkbU1PtIYMInn+nj1HofSHQXMF0VcbLSp8Njdf3tu+yPW8K41Gs9v4qZ7ZP/OH7Ve08RIIoOZTxyLrvUjvH3klYohhaI/pIfd7PpftNFsWK2y6Y/aJqtKEVZ8Tik/O/xIHtXzG+MkPIiq7EZpolVLcw6m1F9FZqJEMRJf4AvQLG5jxyT1obHbWzNbWH/cQsX+6SXIOw0eNkFCQuhV85dVyTGlVf9z/Ta9z4fFtWa+go8d4YthTavqseukQhqn1B9jxhcDNWTbf0dw8+BoezT8xigPC5X/DNGmZ74tpC3NmyzcJhEPxcEmxjoRtDE7FfDSX+Se+/9twYr1XHkdyFLoiOicB/u8qlX6WFMWOgMWqmLDMJ33aCUPiKrDJJfgGC4aEof5BGFcd9VlA71AbUpOlZyx6Acqp1OFbwkYK5DHGdTqcwKYXBOc1PjWTVMlyr7drYkRzMtES0hZ4NC0GEyrmRI5DH94nxmAOsTjKNJOZK98Z63658sirBpD+XD6lbthmVm2pnNYw8ue6MEjf38H5XRe3gTs6ZT51q51MErmnTQXRYrDsXmNrVfEM6upwie6FTNm91rVohFh98u7sfIMPKV8dAGOp0B0zzo9oW9SODFnh9b4cJUqrWAN89qik6VdhbP0KCoAgeo98tBPaaF91p5pOVlA7o7mTwY4UgLgu672fVm6x4RU7P3PkAaVyCUtIotjWo3t4oSqpa7IyiDnDT8xEbZLe5I295LO50cFmgtBe6SmYPkSRgRrIglCgE8Wk07Xetc9/VnXH36ZjDf9tMhgLd3rlqWQPVHhIA3qPiOS9RPnA==",
+    "expiration": "2026-06-01T02:51:30.000Z"
+  },
+  "name": "tnucsa-website",
+  "path": "/home/ubuntu/tnucsa-website",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "C8p2MNhZ2scvkkSgZHXAWe",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "BbNNoiEENroG5qtcnUPX6Y",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "solomonkarani34",
+    "OWNER_OPEN_ID": "XecgQeQZTs9GDhZSmrKhTo",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "0a535899-43d0-4673-b0bb-6bdc7cfa79a9",
+    "VITE_APP_ID": "9zwNw8oPS6GVdZYGj7Nbza",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663480390382/GJTwsLQWMBYmLiCh.png",
+    "VITE_APP_TITLE": "TNUCSA Official Website",
+    "VITE_FRONTEND_FORGE_API_KEY": "mqqcg5rLKHqLJTSiLLCfCX",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-db-user",
+  "test_command": "pnpm test"
+}
