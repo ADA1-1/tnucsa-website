@@ -8,7 +8,7 @@ export default function About() {
       {/* Header Section */}
       <section className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">About TNUCSA</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">About TENUCSA</h1>
           <p className="text-xl text-green-200">
             Learn more about our organization, mission, and commitment to student excellence.
           </p>
@@ -23,7 +23,7 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold text-blue-900 mb-4">Our Mission</h2>
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                The Teso North University and Colleges Student Association (TNUCSA) is dedicated to fostering a vibrant and inclusive community of students across universities and colleges in the Teso North region. We aim to promote academic excellence, personal development, and meaningful engagement among our members.
+                The Teso North University and Colleges Student Association (TENUCSA) is dedicated to fostering a vibrant and inclusive community of students across universities and colleges in the Teso North region. We aim to promote academic excellence, personal development, and meaningful engagement among our members.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
                 Through our programs, events, and initiatives, we strive to create opportunities for students to learn, network, and contribute positively to their institutions and communities.
@@ -76,7 +76,7 @@ export default function About() {
           <div className="max-w-3xl mx-auto">
             <div className="bg-white p-8 rounded-lg border-2 border-blue-200">
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                TNUCSA operates under a democratic structure with elected leadership representing various portfolios including academics, social affairs, finance, and external relations. Our organization is governed by a constitution that ensures transparency, accountability, and fair representation of all member institutions.
+                TENUCSA operates under a democratic structure with elected leadership representing various portfolios including academics, social affairs, finance, and external relations. Our organization is governed by a constitution that ensures transparency, accountability, and fair representation of all member institutions.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
                 We work collaboratively with university and college administrations, student governments, and other stakeholder organizations to ensure our initiatives benefit the entire student community.
@@ -94,13 +94,13 @@ export default function About() {
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              Since its establishment, TNUCSA has grown into one of the most active and influential student organizations in the Teso North region. What began as a small initiative to connect students across institutions has evolved into a comprehensive platform for academic, social, and professional development.
+              Since its establishment, TENUCSA has grown into one of the most active and influential student organizations in the Teso North region. What began as a small initiative to connect students across institutions has evolved into a comprehensive platform for academic, social, and professional development.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mb-6">
               Over the years, we have organized hundreds of events, workshops, and seminars that have positively impacted thousands of students. Our commitment to excellence and innovation continues to drive us forward as we work to create new opportunities and address emerging student needs.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Today, TNUCSA stands as a testament to the power of student unity and collective action. We remain dedicated to our mission of empowering students and shaping the future leaders of tomorrow.
+              Today, TENUCSA stands as a testament to the power of student unity and collective action. We remain dedicated to our mission of empowering students and shaping the future leaders of tomorrow.
             </p>
           </div>
         </div>

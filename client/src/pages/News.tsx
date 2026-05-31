@@ -41,7 +41,7 @@ export default function News() {
       id: 4,
       title: "Scholarship Opportunities Available",
       message:
-        "TNUCSA is pleased to announce several scholarship opportunities for deserving members. Applications are open until April 30, 2026. Visit our website for eligibility criteria and application procedures.",
+        "TENUCSA is pleased to announce several scholarship opportunities for deserving members. Applications are open until April 30, 2026. Visit our website for eligibility criteria and application procedures.",
       priority: "high" as const,
       createdAt: new Date(2026, 2, 15),
       publishedAt: new Date(2026, 2, 15),
@@ -51,7 +51,7 @@ export default function News() {
       id: 5,
       title: "Office Hours: Meet the Leadership",
       message:
-        "All TNUCSA leaders will be available for office hours every Wednesday from 2-4 PM. Come discuss your concerns, ideas, or questions. Location: TNUCSA Office, Main Campus.",
+        "All TENUCSA leaders will be available for office hours every Wednesday from 2-4 PM. Come discuss your concerns, ideas, or questions. Location: TENUCSA Office, Main Campus.",
       priority: "medium" as const,
       createdAt: new Date(2026, 2, 10),
       publishedAt: new Date(2026, 2, 10),
@@ -61,7 +61,7 @@ export default function News() {
       id: 6,
       title: "Website Launch Announcement",
       message:
-        "Welcome to the new TNUCSA website! We are excited to introduce our redesigned platform with improved features for member engagement, event registration, and communication. Explore and let us know your feedback!",
+        "Welcome to the new TENUCSA website! We are excited to introduce our redesigned platform with improved features for member engagement, event registration, and communication. Explore and let us know your feedback!",
       priority: "medium" as const,
       createdAt: new Date(2026, 2, 1),
       publishedAt: new Date(2026, 2, 1),
@@ -123,7 +123,7 @@ export default function News() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">News & Announcements</h1>
           <p className="text-xl text-green-200">
-            Stay updated with the latest news and important announcements from TNUCSA.
+            Stay updated with the latest news and important announcements from TENUCSA.
           </p>
         </div>
       </section>

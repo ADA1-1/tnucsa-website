@@ -96,7 +96,7 @@ export default function Events() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Events</h1>
           <p className="text-xl text-green-200">
-            Discover and register for exciting events organized by TNUCSA.
+            Discover and register for exciting events organized by TENUCSA.
           </p>
         </div>
       </section>

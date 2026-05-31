@@ -46,7 +46,7 @@ function createPublicContext(): { ctx: TrpcContext } {
   return { ctx };
 }
 
-describe("TNUCSA tRPC Routers", () => {
+describe("TENUCSA tRPC Routers", () => {
   describe("members router", () => {
     it("should register a new member with valid data", async () => {
       const { ctx } = createPublicContext();

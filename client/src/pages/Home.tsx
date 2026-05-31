@@ -111,7 +111,7 @@ export default function Home() {
             Ready to Join Our Community?
           </h2>
           <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-            Become a member today and start your journey with TNUCSA. Connect, grow, and make a difference.
+            Become a member today and start your journey with TENUCSA. Connect, grow, and make a difference.
           </p>
           <Link
             href="/register"

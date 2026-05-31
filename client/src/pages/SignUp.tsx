@@ -36,7 +36,7 @@ export default function SignUp() {
       {/* Header Section */}
       <section className="bg-gradient-to-r from-green-700 to-green-800 py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Join TNUCSA</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Join TENUCSA</h1>
           <p className="text-xl text-green-100">
             Create your account and become part of our vibrant community
           </p>
@@ -50,7 +50,7 @@ export default function SignUp() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Left Column - Benefits */}
               <div>
-                <h2 className="text-3xl font-bold text-blue-900 mb-8">Why Join TNUCSA?</h2>
+                <h2 className="text-3xl font-bold text-blue-900 mb-8">Why Join TENUCSA?</h2>
                 <div className="space-y-4">
                   {[
                     {
@@ -134,7 +134,7 @@ export default function SignUp() {
                     {/* Info Text */}
                     <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                       <p className="text-sm text-gray-700">
-                        We use secure OAuth authentication. Your account will be created instantly and you can start exploring TNUCSA.
+                        We use secure OAuth authentication. Your account will be created instantly and you can start exploring TENUCSA.
                       </p>
                     </div>
 
@@ -231,7 +231,7 @@ export default function SignUp() {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                question: "Is it free to join TNUCSA?",
+                question: "Is it free to join TENUCSA?",
                 answer:
                   "Creating an account is free! However, some membership benefits may require a membership fee. Check with our office for current membership rates.",
               },

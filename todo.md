@@ -1,4 +1,4 @@
-# TNUCSA Website - Project TODO
+# TENUCSA Website - Project TODO
 
 ## Core Features
 

@@ -85,7 +85,7 @@ export default function Leadership() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Leadership</h1>
           <p className="text-xl text-green-200">
-            Meet the dedicated individuals leading TNUCSA towards excellence and student empowerment.
+            Meet the dedicated individuals leading TENUCSA towards excellence and student empowerment.
           </p>
         </div>
       </section>

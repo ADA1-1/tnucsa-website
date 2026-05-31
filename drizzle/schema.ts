@@ -25,7 +25,7 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// Members table for TNUCSA membership
+// Members table for TENUCSA membership
 export const members = mysqlTable("members", {
   id: int("id").autoincrement().primaryKey(),
   userId: int("userId").references(() => users.id),

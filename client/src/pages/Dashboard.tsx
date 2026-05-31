@@ -160,7 +160,7 @@ function OverviewTab({ user }: { user: any }) {
           <div>
             <h3 className="font-bold text-blue-900 mb-1">Membership Benefits</h3>
             <p className="text-blue-800 text-sm">
-              As an active member, you have access to all TNUCSA events, exclusive workshops, networking opportunities, and member-only resources.
+              As an active member, you have access to all TENUCSA events, exclusive workshops, networking opportunities, and member-only resources.
             </p>
           </div>
         </div>
@@ -177,7 +177,7 @@ function EventsTab({ user }: { user: any }) {
         <h2 className="text-2xl font-bold text-blue-900 mb-4">My Event Registrations</h2>
         <div className="space-y-3">
           {[
-            { title: "Annual TNUCSA Conference 2024", date: "April 15, 2024", status: "Registered" },
+            { title: "Annual TENUCSA Conference 2024", date: "April 15, 2024", status: "Registered" },
             { title: "Leadership Workshop", date: "April 20, 2024", status: "Registered" },
             { title: "Networking Breakfast", date: "April 25, 2024", status: "Registered" },
           ].map((event, index) => (
@@ -201,7 +201,7 @@ function EventsTab({ user }: { user: any }) {
         <h2 className="text-2xl font-bold text-blue-900 mb-4">Past Events Attended</h2>
         <div className="space-y-3">
           {[
-            { title: "Welcome to TNUCSA", date: "January 10, 2024" },
+            { title: "Welcome to TENUCSA", date: "January 10, 2024" },
             { title: "Professional Development Seminar", date: "February 14, 2024" },
           ].map((event, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md p-4">
@@ -315,7 +315,7 @@ function SettingsTab({ user }: { user: any }) {
         <div className="space-y-4">
           {[
             { key: "events", label: "Event Notifications", description: "Get notified about new events and registrations" },
-            { key: "announcements", label: "Announcements", description: "Receive important announcements from TNUCSA" },
+            { key: "announcements", label: "Announcements", description: "Receive important announcements from TENUCSA" },
             { key: "newsletters", label: "Newsletters", description: "Subscribe to our monthly newsletter" },
           ].map((setting) => (
             <div key={setting.key} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">

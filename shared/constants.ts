@@ -1,5 +1,5 @@
 /**
- * TNUCSA Website Constants
+ * TENUCSA Website Constants
  * Color scheme: Blue, White, Green
  */
 
@@ -16,16 +16,16 @@ export const COLORS = {
 
 export const ASSOCIATION_INFO = {
   name: "Teso North University and Colleges Student Association",
-  shortName: "TNUCSA",
+  shortName: "TENUCSA",
   tagline: "Empowering Students, Shaping the Future",
-  email: "contact@tnucsa.org",
+  email: "contact@tenucsa.org",
   phone: "+254 (XXX) XXX-XXXX",
   address: "Teso North Region, Kenya",
   socialMedia: {
-    facebook: "https://facebook.com/tnucsa",
-    twitter: "https://twitter.com/tnucsa",
-    instagram: "https://instagram.com/tnucsa",
-    linkedin: "https://linkedin.com/company/tnucsa",
+    facebook: "https://facebook.com/tenucsa",
+    twitter: "https://twitter.com/tenucsa",
+    instagram: "https://instagram.com/tenucsa",
+    linkedin: "https://linkedin.com/company/tenucsa",
   },
 };
 

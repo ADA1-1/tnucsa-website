@@ -102,7 +102,7 @@ export default function Contact() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
           <p className="text-xl text-green-200">
-            We'd love to hear from you. Get in touch with TNUCSA today.
+            We'd love to hear from you. Get in touch with TENUCSA today.
           </p>
         </div>
       </section>
@@ -327,14 +327,14 @@ export default function Contact() {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                question: "How do I become a member of TNUCSA?",
+                question: "How do I become a member of TENUCSA?",
                 answer:
                   "You can register as a member by filling out our membership registration form. Visit the 'Join Us' page and complete the registration process. Your application will be reviewed and you will receive a confirmation email.",
               },
               {
                 question: "What are the membership fees?",
                 answer:
-                  "TNUCSA offers affordable membership options. For detailed information about membership fees and payment options, please contact our office or send us an inquiry.",
+                  "TENUCSA offers affordable membership options. For detailed information about membership fees and payment options, please contact our office or send us an inquiry.",
               },
               {
                 question: "How often are events organized?",
@@ -342,7 +342,7 @@ export default function Contact() {
                   "We organize events regularly throughout the year, including workshops, seminars, social activities, and career fairs. Check our Events page for the latest schedule.",
               },
               {
-                question: "Can I volunteer with TNUCSA?",
+                question: "Can I volunteer with TENUCSA?",
                 answer:
                   "Yes! We welcome volunteers. If you're interested in volunteering, please contact us through the inquiry form and let us know about your interests and availability.",
               },

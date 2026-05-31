@@ -71,7 +71,7 @@ export default function AdminDashboard() {
       <section className="bg-gradient-to-r from-blue-900 to-blue-800 py-8">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-white">Admin Dashboard</h1>
-          <p className="text-green-200">Manage TNUCSA content and members</p>
+          <p className="text-green-200">Manage TENUCSA content and members</p>
         </div>
       </section>
 

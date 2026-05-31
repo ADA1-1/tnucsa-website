@@ -27,7 +27,7 @@ export default function Register() {
         phone: "",
       });
       setError("");
-      toast.success("Registration successful! Welcome to TNUCSA.", {
+      toast.success("Registration successful! Welcome to TENUCSA.", {
         description: "Your membership application has been submitted.",
       });
       // Reset success message after 5 seconds
@@ -105,7 +105,7 @@ export default function Register() {
       {/* Header Section */}
       <section className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Join TNUCSA</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Join TENUCSA</h1>
           <p className="text-xl text-green-200">
             Become a member and unlock exclusive benefits and opportunities.
           </p>
@@ -124,7 +124,7 @@ export default function Register() {
                   <div>
                     <h3 className="text-lg font-bold text-green-900 mb-1">Registration Successful!</h3>
                     <p className="text-green-800">
-                      Thank you for registering with TNUCSA. Your membership application has been submitted and is pending approval. You will receive a confirmation email shortly.
+                      Thank you for registering with TENUCSA. Your membership application has been submitted and is pending approval. You will receive a confirmation email shortly.
                     </p>
                   </div>
                 </div>
@@ -243,7 +243,7 @@ export default function Register() {
                 {/* Terms and Conditions */}
                 <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                   <p className="text-sm text-gray-700 mb-3">
-                    By registering, you agree to abide by TNUCSA's constitution and code of conduct. You will receive updates about events, announcements, and membership benefits.
+                    By registering, you agree to abide by TENUCSA's constitution and code of conduct. You will receive updates about events, announcements, and membership benefits.
                   </p>
                   <label className="flex items-center gap-2">
                     <input type="checkbox" required className="w-4 h-4 rounded" />

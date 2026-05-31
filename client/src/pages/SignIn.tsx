@@ -40,7 +40,7 @@ export default function SignIn() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Member Sign In</h1>
           <p className="text-xl text-green-200">
-            Access your TNUCSA account and exclusive member benefits
+            Access your TENUCSA account and exclusive member benefits
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function SignIn() {
                   <LogIn className="text-green-700" size={32} />
                 </div>
                 <h2 className="text-2xl font-bold text-blue-900">Welcome Back</h2>
-                <p className="text-gray-600 mt-2">Sign in to your TNUCSA account</p>
+                <p className="text-gray-600 mt-2">Sign in to your TENUCSA account</p>
               </div>
 
               {/* Sign In Form */}
