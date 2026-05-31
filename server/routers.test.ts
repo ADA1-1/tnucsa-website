@@ -57,7 +57,7 @@ describe("TNUCSA tRPC Routers", () => {
         registrationNumber: "STU/2024/001",
         institutionName: "Soroti University",
         email: "john@example.com",
-        phone: "+256700123456",
+        phone: "+254700123456",
       };
 
       // This would normally hit the database, but we're testing the procedure structure
@@ -75,7 +75,7 @@ describe("TNUCSA tRPC Routers", () => {
         registrationNumber: "STU/2024/001",
         institutionName: "Soroti University",
         email: "invalid-email",
-        phone: "+256700123456",
+        phone: "+254700123456",
       };
 
       expect(invalidData.email).not.toContain("@");
@@ -199,7 +199,7 @@ describe("TNUCSA tRPC Routers", () => {
       const inquiryData = {
         senderName: "Jane Doe",
         email: "jane@example.com",
-        phone: "+256700987654",
+        phone: "+254700987654",
         subject: "Membership Question",
         message: "I would like to know more about membership benefits",
       };
@@ -318,7 +318,7 @@ describe("TNUCSA tRPC Routers", () => {
     });
 
     it("should validate phone number format", () => {
-      const validPhones = ["+256700123456", "0700123456", "+1234567890"];
+      const validPhones = ["+254700123456", "0700123456", "+1234567890"];
       const invalidPhones = ["123", "abc"];
 
       validPhones.forEach((phone) => {

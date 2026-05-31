@@ -19,8 +19,8 @@ export const ASSOCIATION_INFO = {
   shortName: "TNUCSA",
   tagline: "Empowering Students, Shaping the Future",
   email: "contact@tnucsa.org",
-  phone: "+256 (XXX) XXX-XXXX",
-  address: "Teso North Region, Uganda",
+  phone: "+254 (XXX) XXX-XXXX",
+  address: "Teso North Region, Kenya",
   socialMedia: {
     facebook: "https://facebook.com/tnucsa",
     twitter: "https://twitter.com/tnucsa",
